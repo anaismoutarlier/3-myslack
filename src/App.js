@@ -7,7 +7,7 @@ import { firebaseConfig } from "./firebaseConfig";
 function App() {
   const { user, auth, firestore } = useFirebase(firebaseConfig);
   return <FirebaseContext.Provider value={{ user, auth, firestore }}>
-    {user ? <Chat /> : <Login />};
+    {user ? <Chat /> : <Login />}
   </FirebaseContext.Provider>
 }
 
