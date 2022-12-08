@@ -44,7 +44,6 @@ export default function useFirebase(config) {
   useEffect(() => {
     if (auth) {
       const unsubscribe = auth.onAuthStateChanged(authUser => {
-        console.log(authUser);
         if (authUser) {
           const newUser = {
             photoURL: authUser.photoURL,
@@ -73,9 +72,7 @@ export default function useFirebase(config) {
       };
   
       const handleSnapshot = data => {
-        console.log(data);
         const messages = data.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        console.log(messages);
         setMessages(messages);
       };
   
